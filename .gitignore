@@ -1,0 +1,33 @@
+
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environment
+.venv/
+venv/
+
+# Database
+db.sqlite3
+*.sqlite3
+
+# Sensitive configuration
+.env
+.env.*
+!.env.example
+
+# Local development files
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Ngrok
+ngrok
+ngrok.exe
+*.tgz
+
+# Generated charts
+journal/static/pie_chart.png
+
+# Local logs
+*.log

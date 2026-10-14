@@ -1,0 +1,18 @@
+<!-- entry_statistics.html -->
+
+{% extends 'journal/base.html' %}
+
+{% block title %}Entry Statistics{% endblock %}
+
+{% block content %}
+    <h2>Emotion Distribution in Entries</h2>
+    
+   {% if chart_image %}
+    <img
+        src="data:image/png;base64,{{ chart_image }}"
+        alt="Emotion distribution chart"
+    >
+{% else %}
+    <p>No journal entries available for statistics.</p>
+{% endif %}
+{% endblock %}
