@@ -1,37 +1,147 @@
+
 {% extends 'journal/base.html' %}
 
 {% block title %}Create New Entry{% endblock %}
 
 {% block content %}
-    <div class="container mt-5">
-        <h3>Create New Entry</h3>
+<div class="entry-form-container">
+    <h3>Create New Entry</h3>
 
-        <form method="post" action="{% url 'entry_create' topic.id %}">
-            {% csrf_token %}
-            <input type="hidden" name="topic_id" value="{{ topic.id }}">
-            <div class="mb-3">
-                <label for="entryTitle" class="form-label">Title:</label>
-                <input type="text" class="form-control" id="entryTitle" name="title" required>
-            </div>
-            <div class="mb-3">
-                <label for="entryContent" class="form-label">Content:</label>
-                <textarea class="form-control" id="entryContent" name="content" required></textarea>
-            </div>
-            <div class="mb-3">
-                <label for="entryEmotion" class="form-label">Emotion:</label>
-                <select class="form-select" id="entryEmotion" name="emotion" required>
-                    <option value="Happy">Happy</option>
-                    <option value="Trust">Trust</option>
-                    <option value="Surprise">Surprise</option>
-                    <option value="Anticipation">Anticipation</option>
-                    <option value="Angry">Angry</option>
-                    <option value="Fear">Fear</option>
-                    <option value="Sad">Sad</option>
-                    <option value="Disgust">Disgust</option>
-                    <option value="Contempt">Contempt</option>                                             
-                </select>
-            </div>
-            <button type="submit" class="btn btn-success">Submit</button>
-        </form>
-    </div>
+    <form method="post" action="{% url 'entry_create' topic.id %}">
+        {% csrf_token %}
+        <input type="hidden" name="topic_id" value="{{ topic.id }}">
+
+        <div class="entry-form-group">
+            <label for="entryTitle">Title:</label>
+            <input
+                type="text"
+                id="entryTitle"
+                name="title"
+                required
+            >
+        </div>
+
+        <div class="entry-form-group">
+            <label for="entryContent">Content:</label>
+            <textarea
+                id="entryContent"
+                name="content"
+                rows="5"
+                required
+            ></textarea>
+        </div>
+
+        <div class="entry-form-group">
+            <label for="entryEmotion">Emotion:</label>
+            <select id="entryEmotion" name="emotion" required>
+                <option value="Happy">Happy</option>
+                <option value="Trust">Trust</option>
+                <option value="Surprise">Surprise</option>
+                <option value="Anticipation">Anticipation</option>
+                <option value="Angry">Angry</option>
+                <option value="Fear">Fear</option>
+                <option value="Sad">Sad</option>
+                <option value="Disgust">Disgust</option>
+                <option value="Contempt">Contempt</option>
+            </select>
+        </div>
+
+        <div class="entry-form-actions">
+            <button type="submit" class="btn btn-primary">
+                Submit
+            </button>
+
+            <a href="{% url 'topic_detail' topic.id %}"
+               class="btn entry-cancel-button">
+                Cancel
+            </a>
+        </div>
+    </form>
+</div>
+
+<style>
+    .entry-form-container {
+        width: 100%;
+        max-width: 600px;
+        margin: 60px auto;
+        padding: 30px;
+        background: #ffffff;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+    }
+
+    .entry-form-container h3 {
+        display: block;
+        padding: 0;
+        margin: 0 0 25px;
+        font-size: 22px;
+    }
+
+    .entry-form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    .entry-form-group label {
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+
+    .entry-form-group input,
+    .entry-form-group textarea,
+    .entry-form-group select {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        padding: 12px;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        background: white;
+        font: inherit;
+        box-sizing: border-box;
+    }
+
+    .entry-form-group textarea {
+        min-height: 130px;
+        resize: vertical;
+    }
+
+    .entry-form-group input:focus,
+    .entry-form-group textarea:focus,
+    .entry-form-group select:focus {
+        outline: 2px solid #3498db;
+        outline-offset: 1px;
+    }
+
+    .entry-form-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 25px;
+    }
+
+    .entry-form-actions .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 110px;
+        min-height: 44px;
+        margin: 0;
+        padding: 10px 20px;
+        font-size: 14px;
+        text-decoration: none;
+        box-sizing: border-box;
+    }
+
+    .entry-form-actions .entry-cancel-button {
+        background-color: #e5e7eb;
+        color: #2c3e50;
+    }
+
+    .entry-form-actions .entry-cancel-button:hover {
+        background-color: #d1d5db;
+        opacity: 1;
+    }
+</style>
 {% endblock %}

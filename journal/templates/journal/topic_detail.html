@@ -7,7 +7,7 @@
     <div class="header">
         <h3>Current Topic - {{ topic.title }}</h3>
         <div class="buttons">
-            <a href="{% url 'entry_create' topic_id=topic.id %}"><button class="btn btn-primary">Add new Entry</button></a>
+         <a href="{% url 'entry_create' topic_id=topic.id %}"class="btn btn-primary">Add new Entry</a>
             <button type="button" id="deleteEntryButton" class="btn btn-danger">Delete Entry</button>
         </div>
     </div>
@@ -200,6 +200,19 @@
 <style>
     .highlight {
         background-color: yellow;
+    }
+
+    .filter-controls {
+        position: static;
+        display: block;
+        width: 100%;
+        margin: 20px 0;
+        clear: both;
+    }
+
+    #toggleFiltersButton {
+        position: static;
+        margin: 0;
     }
 </style>
 
