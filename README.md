@@ -13,18 +13,18 @@ A web application developed as a bachelor's thesis project, designed to help use
 
 ## Technologies
 
-- **Backend:** Python, Django 4.2
+- **Backend:** Python, Django 4.2.30
 - **Frontend:** HTML, CSS, JavaScript
 - **Database:** SQLite
-- **Data visualization:** Matplotlib
+- **Data visualization:** Chart.js, Matplotlib
 
 ## Getting Started
 
 ### 1. Clone the repository
 
 ```bash
-git clone YOUR_REPOSITORY_URL
-cd YOUR_REPOSITORY_NAME
+git clone https://github.com/Azetlex/emotion-journal.git
+cd emotion-journal/licenta2
 ```
 
 ### 2. Create a virtual environment
@@ -47,7 +47,21 @@ python -m pip install -r requirements.txt
 
 ### 4. Configure the application
 
-Set the `DJANGO_SECRET_KEY` environment variable for your local environment.
+Generate a Django secret key by running:
+
+```bash
+python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+```
+
+Create a `.env` file in the same folder as `manage.py` and add:
+
+```env
+DJANGO_SECRET_KEY=your-generated-key
+```
+
+Replace `your-generated-key` with the generated key.
+
+**Important:** Keep `.env` private and never upload it to GitHub.
 
 ### 5. Initialize the database
 
