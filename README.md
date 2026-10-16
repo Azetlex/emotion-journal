@@ -10,6 +10,14 @@ A web application developed as a bachelor's thesis project, designed to help use
 - Emotion tracking
 - Statistical visualizations
 - Editing and deleting journal entries
+- 
+## Screenshots
+
+### Home Dashboard
+![Home Dashboard](screenshots/Home.png)
+
+### Journal Entry & Emotion Statistics
+![Journal Entry](screenshots/journal-entry.png)
 
 ## Technologies
 
