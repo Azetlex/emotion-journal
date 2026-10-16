@@ -17,7 +17,7 @@ A web application developed as a bachelor's thesis project, designed to help use
 ![Home Dashboard](screenshots/Home.png)
 
 ### Journal Entry & Emotion Statistics
-![Journal Entry](screenshots/journal-entry.png)
+![Journal Entry](screenshots/journal_entry.png)
 
 ## Technologies
 
